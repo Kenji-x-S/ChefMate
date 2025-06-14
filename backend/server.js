@@ -1,8 +1,11 @@
 const express=require("express")
 const app=express()
 const dotenv=require("dotenv").config()
+const connectDb=require("./config/connectionDb")
 
 const PORT=process.env.PORT || 3500
+
+connectDb()
 
 app.use("/recipe",require("./routes/recipe"))
 
