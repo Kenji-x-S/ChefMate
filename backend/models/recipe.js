@@ -15,11 +15,9 @@ const recipeSchema=mongoose.Schema({
     },
     time:{
         type:String,
-        required:true
     },
     coverImage:{
         type:String,
-        required:true
     },
 },{timestamps:true})
 
