@@ -20,7 +20,7 @@ export default function RecipeItems() {
                             <div className='card-body'>
                                 <div className='title'>{item.title}</div>
                                 <div className='icons'>
-                                    <div className='timer'><BsStopwatchFill/></div>
+                                    <div className='timer'><BsStopwatchFill/>{item.time}</div>
                                     {(!path)?<FaHeart/>:
                                     <div className='action'>
                                         <Link to={`/editRecipe/${item._id}`} className="editIcon"><FaEdit/></Link>

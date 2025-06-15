@@ -36,7 +36,7 @@ export default function EditRecipe() {
                 'authorization':'bearer '+localStorage.getItem("token")
             }
         })
-        .then(() => navigate("/"))
+        .then(() => navigate("/myRecipe"))
     }
     return (
         <>
