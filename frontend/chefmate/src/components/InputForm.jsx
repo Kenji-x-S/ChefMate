@@ -2,7 +2,7 @@ import React, { use, useState } from "react";
 import axios from 'axios'
 
 
-export default function InputForm(setIsOpen) {
+export default function InputForm({ setIsOpen }) {
     const [email,setEmail]=useState("")
     const [password,setPassword]=useState("")
     const [isSignUp,setIsSignUp]=useState(false)
@@ -30,7 +30,7 @@ export default function InputForm(setIsOpen) {
                     <label>Password</label>
                     <input type="password" className="input" onChange={(e)=>setPassword(e.target.value)} required></input>
                 </div>
-                <button type="submit">{(isSignUp)? "Sign Up":"Login"}</button><br />
+                <button type='submit'>{(isSignUp)? "Sign Up":"Login"}</button><br />
                 { (error!="") && <h6 className="error">{error}</h6>}
                 <p onClick={()=>setIsSignUp(pre=>!pre)}>{(isSignUp) ? "Already have an account?" : "Create new Account"}</p>
             </form>

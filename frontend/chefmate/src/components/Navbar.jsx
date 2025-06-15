@@ -1,12 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Modal from './Modal'
 import InputForm from './inputForm'
+import { NavLink } from 'react-router-dom'
 
 export default function Navbar(){
   const [isOpen,setIsOpen]=useState(false)
+  let token=localStorage.getItem("token")
+  const [isLogin,setIsLogin]=useState(token?false:true)
+
+  useEffect(()=>{
+    setIsLogin(token ? false :true)
+  },[token])
 
   const checkLogin=()=>{
-    setIsOpen(true)
+    if(token){
+      localStorage.removeItem("token")
+      localStorage.removeItem("user")
+      setIsLogin(true)
+    }
+    else{
+   setIsOpen(true)
+    }
+ 
   }
 
   return(
@@ -14,10 +29,10 @@ export default function Navbar(){
     <header>
         <h2>CHEFMATE</h2>
         <ul>
-            <li>Home</li>
-            <li>My Recipes</li>
-            <li>Favourites</li>
-            <li onClick={checkLogin}>Login</li>
+            <li><NavLink to="/">Home</NavLink></li>
+            <li onClick={()=> isLogin && setIsOpen(true)}><NavLink to={ !isLogin? "/myRecipe" : "/"}>My Recipes</NavLink></li>
+            <li onClick={()=> isLogin && setIsOpen(true)}><NavLink to={!isLogin? "/favRecipe" : "/"}>Favourites</NavLink></li>
+            <li onClick={checkLogin}><p className='login'>{(isLogin)?"Login":"Logout"}</p></li>
         </ul>
     </header>
   { (isOpen) && <Modal onClose={()=>setIsOpen(false)}><InputForm setIsOpen={()=>setIsOpen(false)}/></Modal>}
