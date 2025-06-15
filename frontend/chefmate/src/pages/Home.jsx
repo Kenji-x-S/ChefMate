@@ -1,24 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import food from '../assets/food.jpeg'
 import RecipeItems from '../components/RecipeItems.jsx'
 import { useNavigate } from 'react-router-dom'
+import Modal from '../components/Modal.jsx'
+import InputForm from '../components/inputForm.jsx'
 
 export default function Home(){
     const navigate=useNavigate()
+    const [isOpen,setIsOpen]=useState(false)
+    const addRecipe=()=>{
+        let token=localStorage.getItem("token")
+        if(token){
+        navigate("/addRecipe")
+        }
+        else{
+            setIsOpen(true)
+        }
+    }
   return(
     <>
         <section className='home'>
             <div className='left'>
                 <h1>Welcome to CHEFMATE</h1>
                 <h5>Your AI-powered cooking companion that transforms your kitchen into a culinary playground. Discover recipes, plan meals, and embark on delicious adventures with the power of artificial intelligence.</h5>
-                <button onClick={()=>navigate("/addRecipe")}>Share your recipes</button>
+                <button onClick={addRecipe}>Share your recipes</button>
             </div>
             <div className='right'>
                 <img src={food} width="300px" height="300px" ></img>
             </div>
-            <div className='bg'>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#00cba9" fillOpacity="1" d="M0,96L80,80C160,64,320,32,480,58.7C640,85,800,171,960,202.7C1120,235,1280,213,1360,202.7L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
-            </div>
+            { (isOpen) && <Modal onClose={()=>setIsOpen(false)}><InputForm setIsOpen={()=>setIsOpen(false)}/></Modal>}
             <div className='recipe'>
                 <RecipeItems/>
             </div>
