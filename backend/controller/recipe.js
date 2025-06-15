@@ -42,7 +42,7 @@ const editRecipe=async(req,res)=>{
     let recipe=await Recipes.findById(req.params.id)
     try{
         if(recipe){
-        await Recipes.findByIdAndUpdate(req.params.id,req.body,{new:true})
+        await Recipes.findByIdAndUpdate(req.params.id,{...req.body,coverImage:req.file.filename},{new:true})
         res.json(title,ingredients,instructions,time)
         }
     }
