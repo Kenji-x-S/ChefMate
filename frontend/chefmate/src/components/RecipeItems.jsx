@@ -23,6 +23,8 @@ export default function RecipeItems() {
         await axios.delete(`http://localhost:5000/recipe/${id}`)
         .then((res)=>console.log(res))
         setAllRecipes(recipes=>recipes.filter(recipe=>recipe._id !== id))
+        let filterItem=favItems.filter(recipe=>recipe._id !== id)
+        localStorage.setItem("fav",JSON.stringify(filterItem))
     }
 
     const favRecipe=(item)=>{
