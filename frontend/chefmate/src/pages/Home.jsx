@@ -1,15 +1,17 @@
 import React from 'react'
 import food from '../assets/food.jpeg'
 import RecipeItems from '../components/RecipeItems.jsx'
+import { useNavigate } from 'react-router-dom'
 
 export default function Home(){
+    const navigate=useNavigate()
   return(
     <>
         <section className='home'>
             <div className='left'>
                 <h1>Welcome to CHEFMATE</h1>
                 <h5>Your AI-powered cooking companion that transforms your kitchen into a culinary playground. Discover recipes, plan meals, and embark on delicious adventures with the power of artificial intelligence.</h5>
-                <button>Share your recipes</button>
+                <button onClick={()=>navigate("/addRecipe")}>Share your recipes</button>
             </div>
             <div className='right'>
                 <img src={food} width="300px" height="300px" ></img>
