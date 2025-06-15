@@ -1,7 +1,5 @@
 import React from 'react'
 import food from '../assets/food.jpeg'
-import Navbar from '../components/Navbar.jsx'
-import Footer from '../components/Footer.jsx'
 import RecipeItems from '../components/RecipeItems.jsx'
 
 export default function Home(){
@@ -9,10 +7,8 @@ export default function Home(){
     <>
         <section className='home'>
             <div className='left'>
-                <h1>Food Recipe</h1>
-                <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi itaque atque ipsa consectetur quod consequatur id esse cum molestias harum illum accusamus labore inventore autem, obcaecati perferendis ipsam eligendi ab!
-                Eligendi praesentium explicabo aspernatur consequuntur soluta facere at delectus, similique aliquid tempore mollitia illum. Maxime a quo perspiciatis sint consequatur totam! Hic eum voluptatum perspiciatis, totam consequuntur ea ipsum iste?
-                Adipisci error consequuntur illo cupiditate? Quia nulla, amet, placeat molestias dolor debitis voluptatum aspernatur necessitatibus inventore quasi omnis dolores harum nemo quam doloremque? Consectetur nobis, molestias quis rerum harum est.</h5>
+                <h1>Welcome to CHEFMATE</h1>
+                <h5>Your AI-powered cooking companion that transforms your kitchen into a culinary playground. Discover recipes, plan meals, and embark on delicious adventures with the power of artificial intelligence.</h5>
                 <button>Share your recipes</button>
             </div>
             <div className='right'>
