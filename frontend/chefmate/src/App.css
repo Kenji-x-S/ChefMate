@@ -150,6 +150,7 @@ section {
   max-width: 800px;
   line-height: 1.8;
   font-weight: 400;
+  letter-spacing: 0.3px;
 }
 
 .home button {
@@ -309,3 +310,4 @@ section {
 body:hover {
   background-color: #fffaf2;
 }
+
