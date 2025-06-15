@@ -11,14 +11,14 @@ const userSignUp=async(req,res)=>{
     let user=await User.findOne({email})
     if(user)
     {
-        return res.status(400).json({message:"Email is already registered"})
+        return res.status(400).json({error:"Email is already registered"})
     }
     const hashPwd=await bcrypt.hash(password,10)
     const newUser=await User.create({
         email,password:hashPwd
     })
     let token=jwt.sign({email,id:newUser._id},process.env.SECRET_KEY)
-    return res.status(200).json({token,newUser})
+    return res.status(200).json({token, user:newUser})
 }
 
 const userLogin=async(req,res)=>{

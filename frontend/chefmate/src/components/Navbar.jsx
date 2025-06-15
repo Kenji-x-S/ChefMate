@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Modal from './Modal'
+import InputForm from './inputForm'
 
 export default function Navbar(){
   const [isOpen,setIsOpen]=useState(false)
@@ -19,7 +20,7 @@ export default function Navbar(){
             <li onClick={checkLogin}>Login</li>
         </ul>
     </header>
-  { (isOpen) && <Modal onClose={()=>setIsOpen(false)}/>}
+  { (isOpen) && <Modal onClose={()=>setIsOpen(false)}><InputForm setIsOpen={()=>setIsOpen(false)}/></Modal>}
     </>
   )
 }
