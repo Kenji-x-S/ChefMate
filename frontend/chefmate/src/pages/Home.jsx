@@ -25,9 +25,6 @@ export default function Home(){
                 <h5>Your AI-powered cooking companion that transforms your kitchen into a culinary playground. Discover recipes, plan meals, and embark on delicious adventures with the power of artificial intelligence.</h5>
                 <button onClick={addRecipe}>Share your recipes</button>
             </div>
-            <div className='right'>
-                <img src={food} width="300px" height="300px" ></img>
-            </div>
             { (isOpen) && <Modal onClose={()=>setIsOpen(false)}><InputForm setIsOpen={()=>setIsOpen(false)}/></Modal>}
             <div className='recipe'>
                 <RecipeItems/>
