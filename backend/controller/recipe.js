@@ -53,8 +53,15 @@ const editRecipe=async(req,res)=>{
     }
     
 }
-const deleteRecipe=(req,res)=>{
-    res.json({message:"hello"})
+const deleteRecipe=async(req,res)=>{
+    try{
+        await Recipes.deleteOne({_id:req.params.id})
+        res.json({status:"OK"})
+    }
+    catch(err)
+    {
+        return res.status(400).json({message:"error"})
+    }
 }
 
 
