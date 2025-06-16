@@ -128,15 +128,22 @@ section {
   gap: 3rem;
   position: relative;
   width: 100% !important;
-  min-height: 100%;
+  min-height: 100vh;
   padding: 0 2rem;
   animation: fadeInUp 1s ease-out;
+}
+
+.home .left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .home .left h1 {
   font-size: 4rem;
   color: #264653;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -173,6 +180,13 @@ section {
 .home button:hover {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 7px 20px rgba(231, 111, 81, 0.6);
+}
+
+.home .right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 }
 
 .home .right img {
@@ -269,9 +283,13 @@ section {
 .outer-container .recipe-details {
   display: flex;
   gap: 3rem;
-  align-items: justify;
+  align-items: center;
   margin-top: 1rem;
   transition: all 0.3s ease;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .outer-container .recipe-details:hover {
@@ -350,12 +368,16 @@ section {
   width: 71%;
   margin: 0 auto;
   text-align: center;
+  animation: fadeIn 0.5s ease-out;
 }
 
 .form-header {
-  background-color: #d4f6e8;
-  height: 3px;
-  text-align: center;
+  background: linear-gradient(90deg, #d4f6e8, #a3e4d7);
+  height: 4px;
+  width: 50%;
+  margin: 0 auto 1.5rem;
+  border-radius: 2px;
+  animation: pulse 2s infinite;
 }
 
 .form-control {
@@ -363,6 +385,11 @@ section {
   justify-content: space-between;
   gap: 1rem;
   margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control:hover {
+  transform: translateY(-2px);
 }
 
 .form-control .input {
@@ -370,26 +397,30 @@ section {
   border: 1px solid #9ca3af;
   border-radius: 4px;
   height: 30px;
-  padding: 2px;
-  transition: border-color 0.3s ease;
+  padding: 2px 10px;
+  transition: all 0.3s ease;
 }
 
 .form-control .input:focus {
   border-color: #f4a261;
   outline: none;
+  box-shadow: 0 0 5px rgba(244, 162, 97, 0.5);
+  transform: scale(1.02);
 }
 
 .form-control .input-textarea {
   border: 1px solid #9ca3af;
   border-radius: 4px;
   flex-basis: 70%;
-  padding: 2px;
-  transition: border-color 0.3s ease;
+  padding: 10px;
+  transition: all 0.3s ease;
 }
 
 .form-control .input-textarea:focus {
   border-color: #f4a261;
   outline: none;
+  box-shadow: 0 0 5px rgba(244, 162, 97, 0.5);
+  transform: scale(1.02);
 }
 
 .form button {
@@ -426,6 +457,7 @@ section {
 .form .error {
   color: #ef3535;
   font-size: 13px;
+  animation: shake 0.5s;
 }
 
 .container {
@@ -464,9 +496,13 @@ section {
 .outer-container .recipe-details {
   display: flex;
   gap: 3rem;
-  align-items: justify;
+  align-items: center;
   margin-top: 1rem;
   transition: all 0.3s ease;
+  padding: 1rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .outer-container .recipe-details:hover {
@@ -519,4 +555,12 @@ section {
 @keyframes slideUp {
   from { transform: translateY(20px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
 }
