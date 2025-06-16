@@ -34,6 +34,7 @@ export default function Navbar(){
             <li><NavLink to="/">Home</NavLink></li>
             <li onClick={()=> isLogin && setIsOpen(true)}><NavLink to={ !isLogin? "/myRecipe" : "/"}>My Recipes</NavLink></li>
             <li onClick={()=> isLogin && setIsOpen(true)}><NavLink to={!isLogin? "/favRecipe" : "/"}>Favourites</NavLink></li>
+            <li><NavLink to="/generate-recipe">Generate Recipe</NavLink></li>
             <li onClick={checkLogin}>
               <NavLink to="/" className="login-btn">
                 {isLogin ? "Login" : "Logout"}
