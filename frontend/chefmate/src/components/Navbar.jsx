@@ -9,7 +9,6 @@ export default function Navbar(){
   const [isOpen,setIsOpen]=useState(false)
   let token=localStorage.getItem("token")
   const [isLogin,setIsLogin]=useState(token?false:true)
-    let user=JSON.parse(localStorage.getItem("user"))
   const { isDarkMode, toggleTheme } = useTheme()
 
   useEffect(()=>{
@@ -23,9 +22,8 @@ export default function Navbar(){
       setIsLogin(true)
     }
     else{
-   setIsOpen(true)
+      setIsOpen(true)
     }
- 
   }
 
   return(
@@ -36,7 +34,11 @@ export default function Navbar(){
             <li><NavLink to="/">Home</NavLink></li>
             <li onClick={()=> isLogin && setIsOpen(true)}><NavLink to={ !isLogin? "/myRecipe" : "/"}>My Recipes</NavLink></li>
             <li onClick={()=> isLogin && setIsOpen(true)}><NavLink to={!isLogin? "/favRecipe" : "/"}>Favourites</NavLink></li>
-            <li onClick={checkLogin}><p className='login'>{(isLogin)?"Login":"Logout"}{user?.email ? `(${user?.email})` : ""}</p></li>
+            <li onClick={checkLogin}>
+              <NavLink to="/" className="login-btn">
+                {isLogin ? "Login" : "Logout"}
+              </NavLink>
+            </li>
             <li>
               <button 
                 onClick={toggleTheme} 
@@ -49,15 +51,30 @@ export default function Navbar(){
                   borderRadius: '50%',
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'center'
+                  justifyContent: 'center',
+                  transition: 'transform 0.5s ease'
                 }}
               >
-                {isDarkMode ? <FaSun style={{ color: '#fff' }} /> : <FaMoon style={{ color: '#fff' }} />}
+                {isDarkMode ? (
+                  <FaSun 
+                    style={{ 
+                      color: '#fff',
+                      animation: 'rotate 1s ease-in-out'
+                    }} 
+                  />
+                ) : (
+                  <FaMoon 
+                    style={{ 
+                      color: '#fff',
+                      animation: 'rotate 1s ease-in-out'
+                    }} 
+                  />
+                )}
               </button>
             </li>
         </ul>
     </header>
-  { (isOpen) && <Modal onClose={()=>setIsOpen(false)}><InputForm setIsOpen={()=>setIsOpen(false)}/></Modal>}
+    { (isOpen) && <Modal onClose={()=>setIsOpen(false)}><InputForm setIsOpen={()=>setIsOpen(false)}/></Modal>}
     </>
   )
 }

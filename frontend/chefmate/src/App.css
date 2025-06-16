@@ -749,3 +749,74 @@ body {
 .theme-toggle:hover .theme-icon {
   transform: rotate(15deg);
 }
+
+/* Login/Logout Icons */
+.login-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.login-container:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logout-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-email {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* Theme Toggle Animation */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Update the login button styles */
+.login-btn {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.login-btn:hover {
+  color: #fff5e6;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.login-btn::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff5e6;
+  transition: width 0.3s ease;
+}
+
+.login-btn:hover::after {
+  width: 100%;
+}
