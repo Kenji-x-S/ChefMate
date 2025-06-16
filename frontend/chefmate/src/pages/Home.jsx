@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import food from '../assets/food.jpeg'
+//import food from '../assets/food.jpeg'
 import RecipeItems from '../components/RecipeItems.jsx'
 import { useNavigate } from 'react-router-dom'
 import Modal from '../components/Modal.jsx'
