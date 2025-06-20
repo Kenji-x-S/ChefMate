@@ -862,12 +862,6 @@ body.dark-mode button[type="submit"]:hover {
   color: #ecf0f1;
 }
 
-.active {
-  color: #264653 !important;
-  background-color: #d4f6e8;
-  border-radius: 5px;
-  transition: all 0.3s ease;
-}
 
 /* Animations */
 @keyframes slideIn {
@@ -1039,25 +1033,6 @@ body {
   transform: rotate(15deg);
 }
 
-/* Login/Logout Icons */
-.login-container {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  padding: 8px;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-}
-
-.login-container:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.logout-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
 
 .user-email {
   color: #fff;

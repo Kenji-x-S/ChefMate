@@ -59,7 +59,7 @@ export default function Home() {
           </div>
 
           <motion.div
-            className="flex-shrink-0 ml-12"
+            className="flex-shrink-0 ml-12 bg-white/10 backdrop-blur-sm opacity-70 rounded-3xl shadow-lg"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -67,7 +67,7 @@ export default function Home() {
             <img
               src={foodImage}
               alt="Delicious food"
-              className="rounded-3xl shadow-lg w-full max-w-[300px] h-auto object-contain"
+              className="rounded-3xl w-full max-w-[300px] h-auto object-contain"
             />
           </motion.div>
         </div>

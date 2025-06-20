@@ -28,33 +28,22 @@ export default function Navbar(){
 
   return(
     <>
-    <header>
-        <h2>CHEFMATE</h2>
-        <ul>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li onClick={()=> isLogin && setIsOpen(true)}><NavLink to={ !isLogin? "/myRecipe" : "/"}>My Recipes</NavLink></li>
-            <li onClick={()=> isLogin && setIsOpen(true)}><NavLink to={!isLogin? "/favRecipe" : "/"}>Favourites</NavLink></li>
-            <li><NavLink to="/generate-recipe">Generate Recipe</NavLink></li>
+    <header className="navbar-custom bg-orange-50/80 backdrop-blur-lg py-3 px-6 flex justify-between items-center fixed top-0 w-full z-50">
+        <h2 className="logo-custom text-3xl font-extrabold text-white drop-shadow-md">CHEFMATE</h2>
+        <ul className="nav-list flex space-x-4 items-center">
+            <li><NavLink to="/" className={({ isActive }) => { console.log('Home isActive:', isActive); return `nav-item text-white ${isActive ? 'underline decoration-orange-400/50 font-bold' : 'hover:text-orange-300 hover:shadow-[0_0_10px_rgba(255,165,0,0.3)]'} transition-all duration-500 ease-in-out` }}>Home</NavLink></li>
+            <li onClick={()=> isLogin && setIsOpen(true)}><NavLink to={!isLogin? "/myRecipe" : "/"} className={({ isActive }) => { console.log('My Recipes isActive:', isActive); return `nav-item text-white ${isActive ? 'underline decoration-orange-400/50 font-bold' : 'hover:text-orange-300 hover:shadow-[0_0_10px_rgba(255,165,0,0.3)]'} transition-all duration-500 ease-in-out` }}>My Recipes</NavLink></li>
+            <li onClick={()=> isLogin && setIsOpen(true)}><NavLink to={!isLogin? "/favRecipe" : "/"} className={({ isActive }) => { console.log('Favourites isActive:', isActive); return `nav-item text-white ${isActive ? 'underline decoration-orange-400/50 font-bold' : 'hover:text-orange-300 hover:shadow-[0_0_10px_rgba(255,165,0,0.3)]'} transition-all duration-500 ease-in-out` }}>Favourites</NavLink></li>
+            <li><NavLink to="/generate-recipe" className={({ isActive }) => { console.log('Generate Recipe isActive:', isActive); return `nav-item text-white ${isActive ? 'underline decoration-orange-400/50 font-bold' : 'hover:text-orange-300 hover:shadow-[0_0_10px_rgba(255,165,0,0.3)]'} transition-all duration-500 ease-in-out` }}>Generate Recipe</NavLink></li>
             <li onClick={checkLogin}>
-              <NavLink to="/" className="login-btn">
+              <NavLink to="/" className="action-btn text-white bg-amber-500 hover:bg-amber-600 px-5 py-2 rounded-lg transition-all duration-500 ease-in-out">
                 {isLogin ? "Login" : "Logout"}
               </NavLink>
             </li>
             <li>
               <button 
                 onClick={toggleTheme} 
-                className="theme-toggle"
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  padding: '8px',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  transition: 'transform 0.5s ease'
-                }}
+                className="theme-toggle bg-transparent hover:bg-orange-200/50 text-white p-1.5 rounded-full transition-all duration-500 ease-in-out"
               >
                 {isDarkMode ? (
                   <FaSun 
